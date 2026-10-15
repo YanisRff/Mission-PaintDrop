@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="PaintColor" format=3 uid="uid://c2an6k7fcgnai"]
+[gd_resource type="Resource" script_class="PaintColor" format=3 uid="uid://cfw1s7xn1c8x2"]
 
-[ext_resource type="Script" uid="uid://bgcpe8jcusyku" path="res://core/paint_color.gd" id="1_bka11"]
+[ext_resource type="Script" uid="uid://dj1b6asaqyvwj" path="res://core/PaintColor.cs" id="1_8tt0g"]
 
 [resource]
-script = ExtResource("1_bka11")
-metadata/_custom_type_script = "uid://bgcpe8jcusyku"
+script = ExtResource("1_8tt0g")
+Id = &"bla"
+DisplayColor = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://dj1b6asaqyvwj"
