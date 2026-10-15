@@ -8,7 +8,7 @@ public partial class PaintColor : Resource
 
     // Numéro du layer de collision (1 à 32), comme dans l'éditeur
     [Export(PropertyHint.Range, "1,32,1")]
-    public int PhysicsLayer { get; set; } = PhysicsLayers.Black;
+    public int PhysicsLayer { get; set; } = PhysicsLayers.FirstLayerColor;
 
     // Bitmask prêt à assigner à CollisionLayer / CollisionMask
     public uint LayerMask => PhysicsLayers.ToMask(PhysicsLayer);
