@@ -1,0 +1,54 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://levels/BaseLevel.cs" id="1_base_level"]
+[ext_resource type="PackedScene" path="res://mechanics/spawn_point/spawn_point.tscn" id="2_spawn"]
+[ext_resource type="PackedScene" path="res://mechanics/goal/goal.tscn" id="3_goal"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_floor"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_left"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_right"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ceiling"]
+normal = Vector2(0, 1)
+
+[node name="BaseLevel" type="Node2D" node_paths=PackedStringArray("GoalZone", "SpawnPoint1", "SpawnPoint2")]
+script = ExtResource("1_base_level")
+GoalZone = NodePath("Goal")
+SpawnPoint1 = NodePath("SpawnPoint1")
+SpawnPoint2 = NodePath("SpawnPoint2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="SpawnPoint1" parent="." instance=ExtResource("2_spawn")]
+position = Vector2(150, 550)
+
+[node name="SpawnPoint2" parent="." instance=ExtResource("2_spawn")]
+position = Vector2(250, 550)
+PlayerIndex = 1
+
+[node name="Goal" parent="." instance=ExtResource("3_goal")]
+position = Vector2(1000, 520)
+
+[node name="DefaultBoundaries" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="Floor" type="CollisionShape2D" parent="DefaultBoundaries"]
+position = Vector2(576, 620)
+shape = SubResource("WorldBoundaryShape2D_floor")
+
+[node name="LeftWall" type="CollisionShape2D" parent="DefaultBoundaries"]
+position = Vector2(20, 324)
+shape = SubResource("WorldBoundaryShape2D_left")
+
+[node name="RightWall" type="CollisionShape2D" parent="DefaultBoundaries"]
+position = Vector2(1132, 324)
+shape = SubResource("WorldBoundaryShape2D_right")
+
+[node name="Ceiling" type="CollisionShape2D" parent="DefaultBoundaries"]
+position = Vector2(576, 20)
+shape = SubResource("WorldBoundaryShape2D_ceiling")
