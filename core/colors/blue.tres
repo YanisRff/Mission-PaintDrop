@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PaintColor" format=3 uid="uid://chyxuosdaks7c"]
+
+[ext_resource type="Script" uid="uid://bgcpe8jcusyku" path="res://core/paint_color.gd" id="1_lvxnj"]
+
+[resource]
+script = ExtResource("1_lvxnj")
+id = &"blue"
+display_color = Color(0, 0, 1, 1)
+physics_layer = 5
+metadata/_custom_type_script = "uid://bgcpe8jcusyku"
