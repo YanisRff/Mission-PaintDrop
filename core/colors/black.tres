@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="PaintColor" format=3 uid="uid://c2an6k7fcgnai"]
+
+[ext_resource type="Script" uid="uid://bgcpe8jcusyku" path="res://core/paint_color.gd" id="1_bka11"]
+
+[resource]
+script = ExtResource("1_bka11")
+metadata/_custom_type_script = "uid://bgcpe8jcusyku"

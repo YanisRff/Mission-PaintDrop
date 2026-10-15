@@ -23,6 +23,16 @@ window/stretch/aspect="expand"
 
 project/assembly_name="New Game Project"
 
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_2="players"
+2d_physics/layer_3="black"
+2d_physics/layer_4="red"
+2d_physics/layer_5="blue"
+2d_physics/layer_6="yellow"
+2d_physics/layer_7="other"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
