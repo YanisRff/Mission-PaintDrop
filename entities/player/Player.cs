@@ -39,6 +39,8 @@ public partial class Player : CharacterBody2D
         // La forme de collision suit toujours le rayon dessiné
         GetNode<CollisionShape2D>("CollisionShape2D").Shape = new CircleShape2D { Radius = Radius };
 
+		GD.Print($"Layer: {CollisionLayer}  Mask: {CollisionMask}");
+
         QueueRedraw();
     }
 

@@ -1,18 +1,17 @@
 [gd_scene format=3 uid="uid://cfhytrgfofrch"]
 
 [ext_resource type="Script" uid="uid://8s12t3h0bjno" path="res://entities/player/Player.cs" id="1_mab2k"]
-[ext_resource type="Resource" uid="uid://cjuube0sw5dww" path="res://core/colors/Blue.tres" id="2_l3c03"]
 [ext_resource type="Script" uid="uid://b0668yjneaxbu" path="res://core/components/ColorComponent.cs" id="3_eaotn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tpdf6"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1886899338]
 script = ExtResource("1_mab2k")
-Paint = ExtResource("2_l3c03")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1654897554]
 shape = SubResource("CircleShape2D_tpdf6")
 
 [node name="ColorComponent" type="Node" parent="." unique_id=34992725]
 script = ExtResource("3_eaotn")
+Role = 1
 metadata/_custom_type_script = "uid://b0668yjneaxbu"
