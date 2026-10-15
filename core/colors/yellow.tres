@@ -6,4 +6,5 @@
 script = ExtResource("1_tokn4")
 Id = &"yel"
 DisplayColor = Color(1, 1, 0, 1)
+PhysicsLayer = 7
 metadata/_custom_type_script = "uid://dj1b6asaqyvwj"
