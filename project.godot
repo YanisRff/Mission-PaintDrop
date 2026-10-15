@@ -10,9 +10,13 @@ config_version=5
 
 [application]
 
-config/name="Mission paint drop"
+config/name="Mission-PaintDrop"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+EventBus="*res://autoload/EventBus.cs"
 
 [display]
 
@@ -21,7 +25,7 @@ window/stretch/aspect="expand"
 
 [dotnet]
 
-project/assembly_name="New Game Project"
+project/assembly_name="MissionPaintDrop"
 
 [layer_names]
 
