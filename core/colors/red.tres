@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="PaintColor" format=3 uid="uid://byuwfq8rf1fp7"]
+[gd_resource type="Resource" script_class="PaintColor" format=3 uid="uid://ctcujjfd0pifi"]
 
-[ext_resource type="Script" uid="uid://bgcpe8jcusyku" path="res://core/paint_color.gd" id="1_vm5jv"]
+[ext_resource type="Script" uid="uid://dj1b6asaqyvwj" path="res://core/PaintColor.cs" id="1_w1cw2"]
 
 [resource]
-script = ExtResource("1_vm5jv")
-id = &"red"
-display_color = Color(1, 0, 0, 1)
-physics_layer = 4
-metadata/_custom_type_script = "uid://bgcpe8jcusyku"
+script = ExtResource("1_w1cw2")
+Id = &"red"
+DisplayColor = Color(1, 0, 0, 1)
+PhysicsLayer = 5
+metadata/_custom_type_script = "uid://dj1b6asaqyvwj"
