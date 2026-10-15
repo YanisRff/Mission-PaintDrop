@@ -4,11 +4,7 @@ public static class PhysicsLayers
     // Numéros de layers (1 à 32), uniquement ceux qui ne sont PAS des couleurs
     public const int World = 1;
     public const int Player = 2;
-    public const int Black = 3;
-	public const int White = 4;
-	public const int Red = 5;
-	public const int Blue = 6;
-	public const int Yellow = 7;
+    public const int FirstLayerColor = 3;
 
     // Bitmasks correspondants
     public const uint WorldMask = 1u << (World - 1);
