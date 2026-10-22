@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://levels/base_level.tscn" id="1_base"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plat1"]
+size = Vector2(250, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plat2"]
+size = Vector2(200, 24)
+
+[node name="Sandbox" instance=ExtResource("1_base")]
+
+[node name="Goal" parent="." index="4"]
+position = Vector2(980, 250)
+
+[node name="Platforms" type="Node2D" parent="." index="6"]
+
+[node name="Platform1" type="StaticBody2D" parent="Platforms" index="0"]
+position = Vector2(500, 440)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform1" index="0"]
+shape = SubResource("RectangleShape2D_plat1")
+
+[node name="Visual" type="ColorRect" parent="Platforms/Platform1" index="1"]
+offset_left = -125.0
+offset_top = -12.0
+offset_right = 125.0
+offset_bottom = 12.0
+color = Color(0.85, 0.85, 0.85, 1)
+
+[node name="Platform2" type="StaticBody2D" parent="Platforms" index="1"]
+position = Vector2(800, 320)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform2" index="0"]
+shape = SubResource("RectangleShape2D_plat2")
+
+[node name="Visual" type="ColorRect" parent="Platforms/Platform2" index="1"]
+offset_left = -100.0
+offset_top = -12.0
+offset_right = 100.0
+offset_bottom = 12.0
+color = Color(0.85, 0.85, 0.85, 1)
+
+[node name="PlatformGoal" type="StaticBody2D" parent="Platforms" index="2"]
+position = Vector2(980, 300)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/PlatformGoal" index="0"]
+shape = SubResource("RectangleShape2D_plat2")
+
+[node name="Visual" type="ColorRect" parent="Platforms/PlatformGoal" index="1"]
+offset_left = -100.0
+offset_top = -12.0
+offset_right = 100.0
+offset_bottom = 12.0
+color = Color(0.85, 0.85, 0.85, 1)
