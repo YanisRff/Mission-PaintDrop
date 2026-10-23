@@ -23,10 +23,20 @@ public partial class Player : CharacterBody2D
     [ExportGroup("Mouvement")]
     [Export] public float Speed { get; set; } = 220f;
     [Export] public float Acceleration { get; set; } = 1600f;
-    [Export] public float Friction { get; set; } = 2000f;
     [Export] public float JumpVelocity { get; set; } = -420f;
     [Export] public float Gravity { get; set; } = 1200f;
     [Export] public float MaxFallSpeed { get; set; } = 700f;
+
+    [ExportGroup("Saut")]
+    // Temps (secondes) pendant lequel on peut encore sauter après avoir quitté le sol
+    [Export(PropertyHint.Range, "0,0.3,0.01")] public float CoyoteTime { get; set; } = 0.1f;
+
+    [ExportGroup("Pentes")]
+    // Distance max (px) à laquelle le joueur est recollé au sol : évite les "petits sauts"
+    // en descente. Doit être >= Speed * dt * tan(angle de la pente) (≈ 4 px à 45°).
+    [Export(PropertyHint.Range, "1,32,0.5")] public float FloorSnapDistance { get; set; } = 12f;
+    // Angle max (degrés) d'une surface considérée comme du sol (45° par défaut dans Godot)
+    [Export(PropertyHint.Range, "0,89,1")] public float MaxSlopeAngle { get; set; } = 45f;
 
     private StringName _left, _right, _jump;
 
@@ -34,6 +44,8 @@ public partial class Player : CharacterBody2D
     private ShaderMaterial _paintMaterial;
     private Vector2 _visualVelocity;
     private float _squash;
+
+    private float _coyoteTimer;
 
     // _EnterTree s'exécute avant le _Ready des enfants : le ColorComponent
     // reçoit sa couleur avant de configurer les layers, sans avertissement.
@@ -52,6 +64,10 @@ public partial class Player : CharacterBody2D
 
         // La forme de collision suit toujours le rayon dessiné
         GetNode<CollisionShape2D>("CollisionShape2D").Shape = new CircleShape2D { Radius = Radius };
+
+        // Pentes : le joueur reste collé au sol en descente
+        FloorSnapLength = FloorSnapDistance;
+        FloorMaxAngle = Mathf.DegToRad(MaxSlopeAngle);
 
         SetupPaintShader();
         SetupTrail();
@@ -110,18 +126,36 @@ public partial class Player : CharacterBody2D
 
         bool wasOnFloor = IsOnFloor();
 
-        // Gravité
-        if (!wasOnFloor)
-            velocity.Y = Mathf.Min(velocity.Y + Gravity * dt, MaxFallSpeed);
+        // Coyote time : le chrono est rechargé tant qu'on touche le sol,
+        // puis s'écoule une fois en l'air.
+        if (wasOnFloor)
+            _coyoteTimer = CoyoteTime;
+        else
+            _coyoteTimer = Mathf.Max(_coyoteTimer - dt, 0f);
 
-        // Saut
-        if (Input.IsActionJustPressed(_jump) && wasOnFloor)
+        if (wasOnFloor)
+        {
+            // Au sol (y compris sur une pente) : on repart d'une vitesse verticale nulle,
+            // le snap au sol se charge de coller le joueur à la pente en descente.
+            velocity.Y = 0f;
+        }
+        else
+        {
+            // Gravité
+            velocity.Y = Mathf.Min(velocity.Y + Gravity * dt, MaxFallSpeed);
+        }
+
+        // Saut (autorisé au sol, ou pendant le coyote time)
+        if (Input.IsActionJustPressed(_jump) && _coyoteTimer > 0f)
+        {
             velocity.Y = JumpVelocity;
+            _coyoteTimer = 0f; // empêche un second saut
+        }
 
         // Déplacement horizontal avec accélération et friction
         float direction = Input.GetAxis(_left, _right);
-        float rate = direction != 0f ? Acceleration : Friction;
-        velocity.X = Mathf.MoveToward(velocity.X, direction * Speed, rate * dt);
+
+        velocity.X = Mathf.MoveToward(velocity.X, direction * Speed, Acceleration * dt);
 
         float impactSpeed = velocity.Y;
 
