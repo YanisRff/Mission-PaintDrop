@@ -1,12 +1,44 @@
 [gd_scene format=3 uid="uid://cfhytrgfofrch"]
 
+[ext_resource type="Shader" uid="uid://dq5diupy83otg" path="res://assets/art/Players/paint_drop.gdshader" id="1_l3c03"]
 [ext_resource type="Script" uid="uid://8s12t3h0bjno" path="res://entities/player/Player.cs" id="1_mab2k"]
 [ext_resource type="Script" uid="uid://b0668yjneaxbu" path="res://core/components/ColorComponent.cs" id="3_eaotn"]
+[ext_resource type="Shader" uid="uid://cyhcygax3gy6t" path="res://assets/art/Players/paint_trail.gdshader" id="3_g3lhm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ogdy"]
+shader = ExtResource("1_l3c03")
+shader_parameter/radius = 16.0
+shader_parameter/velocity = Vector2(0, 0)
+shader_parameter/speed_reference = Vector2(220, 420)
+shader_parameter/squash = 0.0
+shader_parameter/grain_size = 2.0
+shader_parameter/edge_grain = 0.06
+shader_parameter/tail_length = 0.50000002375
+shader_parameter/tail_taper = 0.800000038
+shader_parameter/light_direction = Vector2(-0.6, -0.8)
+shader_parameter/shade_strength = 0.4
+shader_parameter/edge_darkness = 0.5
+shader_parameter/highlight_strength = 0.85
+shader_parameter/highlight_sharpness = 45.0
+shader_parameter/sheen_strength = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l3c03"]
+shader = ExtResource("3_g3lhm")
+shader_parameter/opacity = 0.9
+shader_parameter/grain_size = 2.0
+shader_parameter/dryness = 0.85
+shader_parameter/edge_fray = 0.5
+shader_parameter/streak_length = 60.0
+shader_parameter/streak_count = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tpdf6"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1886899338]
+material = SubResource("ShaderMaterial_3ogdy")
 script = ExtResource("1_mab2k")
+TrailLifetime = 1.0
+TrailWidth = 0.7999999999999999
+TrailMaterial = SubResource("ShaderMaterial_l3c03")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1654897554]
 shape = SubResource("CircleShape2D_tpdf6")

@@ -60,11 +60,17 @@ public partial class BaseLevel : Node2D
 		}
 
 		Node playerInstance = PlayerScene.Instantiate();
+
+		PaintColor startPaint = LevelData.StartPaints[playerIndex];
+
 		if (playerInstance is Node2D player2D)
 		{
 			player2D.GlobalPosition = spawnPoint.GlobalPosition;
 			player2D.Set("PlayerIndex", playerIndex);
 			player2D.Set("player_index", playerIndex);
+
+			player2D.Set("Paint", startPaint);
+
 			AddChild(player2D);
 		}
 	}

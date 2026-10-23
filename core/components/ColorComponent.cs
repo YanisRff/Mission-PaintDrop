@@ -69,7 +69,7 @@ public partial class ColorComponent : Node
                 break;
 
             case ComponentRole.Body:
-                body.CollisionLayer = PhysicsLayers.PlayerMask;
+                body.CollisionLayer = PhysicsLayers.PlayerMask | _color.LayerMask;
                 body.CollisionMask = PhysicsLayers.WorldMask | ComputeBlockedMask();
                 break;
         }
