@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://bypljbpjsii6m"]
 
 [ext_resource type="Script" uid="uid://b0x4n1403yc0i" path="res://levels/LevelData.cs" id="1_script"]
+[ext_resource type="Resource" uid="uid://ctcujjfd0pifi" path="res://core/colors/Red.tres" id="2_2vxmv"]
 [ext_resource type="Resource" uid="uid://cjuube0sw5dww" path="res://core/colors/Blue.tres" id="2_6hcmx"]
 
 [resource]
 script = ExtResource("1_script")
 LevelName = "Sandbox"
 ParTime = 30.0
-StartPaints = [ExtResource("2_6hcmx"), ExtResource("2_6hcmx")]
+StartPaints = [ExtResource("2_6hcmx"), ExtResource("2_2vxmv")]

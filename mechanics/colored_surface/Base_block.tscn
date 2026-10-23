@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bqq68i2n5y6gq"]
+
+[ext_resource type="Script" uid="uid://cr6i5hf1napt4" path="res://mechanics/colored_surface/BaseBlock.cs" id="1_q2mpv"]
+[ext_resource type="Resource" uid="uid://cfw1s7xn1c8x2" path="res://core/colors/Black.tres" id="2_8nyov"]
+[ext_resource type="Script" uid="uid://b0668yjneaxbu" path="res://core/components/ColorComponent.cs" id="2_cjd7w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpdf6"]
+
+[node name="BaseBlock" type="StaticBody2D" unique_id=2106147890]
+script = ExtResource("1_q2mpv")
+Paint = ExtResource("2_8nyov")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=113893054]
+shape = SubResource("RectangleShape2D_tpdf6")
+
+[node name="Visual" type="ColorRect" parent="." unique_id=1410090372]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorComponent" type="Node" parent="." unique_id=1976396427]
+script = ExtResource("2_cjd7w")
+metadata/_custom_type_script = "uid://b0668yjneaxbu"
