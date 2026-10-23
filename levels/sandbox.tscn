@@ -21,9 +21,10 @@ position = Vector2(980, 250)
 [node name="Platforms" type="Node2D" parent="." index="5" unique_id=253699882]
 
 [node name="Platform1" type="StaticBody2D" parent="Platforms" index="0" unique_id=1526601527]
-position = Vector2(519, 550)
-rotation = -0.17453292
+position = Vector2(510, 563)
+rotation = -0.47298422
 collision_mask = 0
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform1" index="0" unique_id=2078667749]
 rotation = -0.17453292
@@ -44,8 +45,11 @@ script = ExtResource("4_0glgv")
 metadata/_custom_type_script = "uid://b0668yjneaxbu"
 
 [node name="Platform2" type="StaticBody2D" parent="Platforms" index="1" unique_id=700301424]
-position = Vector2(800, 320)
+position = Vector2(741, 398)
+rotation = -0.59864795
+scale = Vector2(1.76, 1)
 collision_mask = 0
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform2" index="0" unique_id=543986331]
 shape = SubResource("RectangleShape2D_plat2")
@@ -60,6 +64,7 @@ color = Color(0.16862746, 0.16862746, 0.16862746, 1)
 [node name="PlatformGoal" type="StaticBody2D" parent="Platforms" index="2" unique_id=1832420980]
 position = Vector2(980, 300)
 collision_mask = 0
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/PlatformGoal" index="0" unique_id=1223560104]
 shape = SubResource("RectangleShape2D_plat2")
