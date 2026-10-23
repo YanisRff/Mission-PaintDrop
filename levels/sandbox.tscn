@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://bhyw3fppurulw"]
 
-[ext_resource type="PackedScene" path="res://levels/base_level.tscn" id="1_base"]
+[ext_resource type="PackedScene" uid="uid://d0hotaxtqw7ss" path="res://levels/base_level.tscn" id="1_base"]
+[ext_resource type="Resource" uid="uid://bypljbpjsii6m" path="res://levels/sandbox_data.tres" id="2_85hcc"]
+[ext_resource type="PackedScene" uid="uid://cfhytrgfofrch" path="res://entities/player/Player.tscn" id="2_whpuv"]
+[ext_resource type="Script" uid="uid://b0668yjneaxbu" path="res://core/components/ColorComponent.cs" id="4_0glgv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plat1"]
 size = Vector2(250, 24)
@@ -8,51 +11,62 @@ size = Vector2(250, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plat2"]
 size = Vector2(200, 24)
 
-[node name="Sandbox" instance=ExtResource("1_base")]
+[node name="Sandbox" unique_id=1638834778 instance=ExtResource("1_base")]
+LevelData = ExtResource("2_85hcc")
+PlayerScene = ExtResource("2_whpuv")
 
-[node name="Goal" parent="." index="4"]
+[node name="Goal" parent="." index="4" unique_id=1791214673]
 position = Vector2(980, 250)
 
-[node name="Platforms" type="Node2D" parent="." index="6"]
+[node name="Platforms" type="Node2D" parent="." index="5" unique_id=253699882]
 
-[node name="Platform1" type="StaticBody2D" parent="Platforms" index="0"]
-position = Vector2(500, 440)
+[node name="Platform1" type="StaticBody2D" parent="Platforms" index="0" unique_id=1526601527]
+position = Vector2(519, 550)
+rotation = -0.17453292
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform1" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform1" index="0" unique_id=2078667749]
+rotation = -0.17453292
 shape = SubResource("RectangleShape2D_plat1")
 
-[node name="Visual" type="ColorRect" parent="Platforms/Platform1" index="1"]
-offset_left = -125.0
-offset_top = -12.0
-offset_right = 125.0
-offset_bottom = 12.0
-color = Color(0.85, 0.85, 0.85, 1)
+[node name="Visual" type="ColorRect" parent="Platforms/Platform1" index="1" unique_id=186865933]
+offset_left = -124.54483
+offset_top = 9.5177
+offset_right = 125.45517
+offset_bottom = 33.5177
+rotation = -0.17453292
+offset_transform_enabled = true
+color = Color(0.16924527, 0.1692453, 0.16924527, 1)
+metadata/_edit_use_anchors_ = true
 
-[node name="Platform2" type="StaticBody2D" parent="Platforms" index="1"]
+[node name="ColorComponent" type="Node" parent="Platforms/Platform1" index="2" unique_id=336806443]
+script = ExtResource("4_0glgv")
+metadata/_custom_type_script = "uid://b0668yjneaxbu"
+
+[node name="Platform2" type="StaticBody2D" parent="Platforms" index="1" unique_id=700301424]
 position = Vector2(800, 320)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform2" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform2" index="0" unique_id=543986331]
 shape = SubResource("RectangleShape2D_plat2")
 
-[node name="Visual" type="ColorRect" parent="Platforms/Platform2" index="1"]
+[node name="Visual" type="ColorRect" parent="Platforms/Platform2" index="1" unique_id=718320865]
 offset_left = -100.0
 offset_top = -12.0
 offset_right = 100.0
 offset_bottom = 12.0
-color = Color(0.85, 0.85, 0.85, 1)
+color = Color(0.16862746, 0.16862746, 0.16862746, 1)
 
-[node name="PlatformGoal" type="StaticBody2D" parent="Platforms" index="2"]
+[node name="PlatformGoal" type="StaticBody2D" parent="Platforms" index="2" unique_id=1832420980]
 position = Vector2(980, 300)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/PlatformGoal" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/PlatformGoal" index="0" unique_id=1223560104]
 shape = SubResource("RectangleShape2D_plat2")
 
-[node name="Visual" type="ColorRect" parent="Platforms/PlatformGoal" index="1"]
+[node name="Visual" type="ColorRect" parent="Platforms/PlatformGoal" index="1" unique_id=500904550]
 offset_left = -100.0
 offset_top = -12.0
 offset_right = 100.0
 offset_bottom = 12.0
-color = Color(0.85, 0.85, 0.85, 1)
+color = Color(0.16862746, 0.16862746, 0.16862746, 1)

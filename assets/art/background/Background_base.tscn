@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dpctk81k48ruw"]
+
+[ext_resource type="Shader" uid="uid://g7jc703jafv5" path="res://assets/art/background/papier_dessin.gdshader" id="1_ijofu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ijofu"]
+shader = ExtResource("1_ijofu")
+shader_parameter/paper_color = Color(0.96, 0.94, 0.88, 1)
+shader_parameter/shadow_color = Color(0.78, 0.73, 0.64, 1)
+shader_parameter/relief_size = 160.0
+shader_parameter/relief_amount = 0.6
+shader_parameter/grain_size = 2.0
+shader_parameter/grain_amount = 0.25
+shader_parameter/fiber_length = 14.0
+shader_parameter/fiber_amount = 0.12
+shader_parameter/light_direction = Vector2(-0.6, -0.8)
+shader_parameter/light_height = 1.2
+shader_parameter/bump_strength = 3.0
+shader_parameter/light_strength = 0.5
+shader_parameter/vignette_strength = 0.15
+
+[node name="BackgroundBase" type="ColorRect" unique_id=1889087815]
+material = SubResource("ShaderMaterial_ijofu")

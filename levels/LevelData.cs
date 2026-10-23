@@ -11,11 +11,11 @@ public partial class LevelData : Resource
 	public string LevelName { get; set; } = string.Empty;
 
 	[Export]
-	public PackedScene LevelScene { get; set; }
-
-	[Export]
 	public LevelData NextLevel { get; set; }
 
 	[Export]
 	public float ParTime { get; set; } = 0.0f;
+
+	[Export]
+	public PaintColor[] StartPaints = new PaintColor[2];
 }
