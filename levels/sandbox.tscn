@@ -4,23 +4,6 @@
 [ext_resource type="Resource" uid="uid://bypljbpjsii6m" path="res://levels/sandbox_data.tres" id="2_85hcc"]
 [ext_resource type="PackedScene" uid="uid://cfhytrgfofrch" path="res://entities/player/Player.tscn" id="2_whpuv"]
 [ext_resource type="Script" uid="uid://b0668yjneaxbu" path="res://core/components/ColorComponent.cs" id="4_0glgv"]
-[ext_resource type="Shader" uid="uid://g7jc703jafv5" path="res://assets/art/background/papier_dessin.gdshader" id="4_gck8l"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tpdf6"]
-shader = ExtResource("4_gck8l")
-shader_parameter/paper_color = Color(0.91062874, 0.8673691, 0.73082095, 1)
-shader_parameter/shadow_color = Color(0.78, 0.73, 0.64, 1)
-shader_parameter/relief_size = 160.0
-shader_parameter/relief_amount = 0.6
-shader_parameter/grain_size = 2.0
-shader_parameter/grain_amount = 0.25
-shader_parameter/fiber_length = 14.0
-shader_parameter/fiber_amount = 0.12
-shader_parameter/light_direction = Vector2(-0.6, -0.8)
-shader_parameter/light_height = 1.2
-shader_parameter/bump_strength = 3.0
-shader_parameter/light_strength = 0.5
-shader_parameter/vignette_strength = 0.15
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plat1"]
 size = Vector2(250, 24)
@@ -32,15 +15,10 @@ size = Vector2(200, 24)
 LevelData = ExtResource("2_85hcc")
 PlayerScene = ExtResource("2_whpuv")
 
-[node name="ColorRect" type="ColorRect" parent="." index="0" unique_id=1649546672]
-material = SubResource("ShaderMaterial_tpdf6")
-offset_right = 1153.0
-offset_bottom = 644.0
-
 [node name="Goal" parent="." index="4" unique_id=1791214673]
 position = Vector2(980, 250)
 
-[node name="Platforms" type="Node2D" parent="." index="6" unique_id=253699882]
+[node name="Platforms" type="Node2D" parent="." index="5" unique_id=253699882]
 
 [node name="Platform1" type="StaticBody2D" parent="Platforms" index="0" unique_id=1526601527]
 position = Vector2(519, 550)
