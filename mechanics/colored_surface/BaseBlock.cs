@@ -1,23 +1,56 @@
 using Godot;
 using System;
 
+[Tool]
 public partial class BaseBlock : StaticBody2D
 {
-	[Export] PaintColor Paint { get; set; }
+	private PaintColor _paint;
 
-	public override void _EnterTree()
-    {
-        GetNode<ColorComponent>("ColorComponent").Color = Paint;
-    }
-
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+	[Export]
+	public PaintColor Paint
 	{
-		GetNode<ColorRect>("Visual").Color = GetNode<ColorComponent>("ColorComponent").Color.DisplayColor;
+		get => _paint;
+		set
+		{
+			if (_paint == value) return;
+
+			if (_paint != null) _paint.Changed -= Refresh;
+			_paint = value;
+			if (_paint != null) _paint.Changed += Refresh;
+
+			Refresh();
+		}
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public override void _EnterTree()
 	{
+		// Réabonnement (idempotent) au cas où le nœud quitte puis revient dans l'arbre
+		if (_paint == null) return;
+		_paint.Changed -= Refresh;
+		_paint.Changed += Refresh;
+	}
+
+	public override void _ExitTree()
+	{
+		if (_paint != null) _paint.Changed -= Refresh;
+	}
+
+	public override void _Ready() => Refresh();
+
+	private void Refresh()
+	{
+		// Pendant le chargement de la scène, _Ready() s'en charge
+		if (!IsNodeReady()) return;
+
+		var visual = GetNodeOrNull<ColorRect>("Visual");
+		if (visual != null && _paint != null)
+			visual.Color = _paint.DisplayColor;
+
+		// Dans l'éditeur : visuel uniquement, on ne touche pas aux collisions
+		if (Engine.IsEditorHint()) return;
+
+		var component = GetNodeOrNull<ColorComponent>("ColorComponent");
+		if (component != null)
+			component.Color = _paint;
 	}
 }
