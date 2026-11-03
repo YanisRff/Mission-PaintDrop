@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Mission-PaintDrop"
-run/main_scene="res://levels/sandbox.tscn"
+run/main_scene="res://ui/main_menu/MainMenu.tscn"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 EventBus="*res://autoload/EventBus.cs"
+LevelManager="*res://autoload/LevelManager.tscn"
 
 [display]
 

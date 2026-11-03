@@ -1,0 +1,6 @@
+[gd_resource type="PackedScene" format=3 uid="uid://main_menu_packed"]
+
+[ext_resource type="PackedScene" uid="uid://main_menu_scene" path="res://ui/main_menu/MainMenu.tscn" id="1_scene"]
+
+[resource]
+packed_scene = ExtResource("1_scene")

@@ -8,7 +8,7 @@ public partial class EventBus : Node
 	public static EventBus Instance { get; private set; }
 
 	[Signal]
-	public delegate void LevelCompletedEventHandler(Resource levelData);
+	public delegate void LevelCompletedEventHandler(Resource levelData, float completionTime);
 
 	[Signal]
 	public delegate void PlayerDiedEventHandler(int playerIndex);
