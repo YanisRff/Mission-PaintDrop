@@ -1,8 +1,93 @@
 [gd_scene format=3 uid="uid://cw05jmkibwoll"]
 
 [ext_resource type="PackedScene" uid="uid://d0hotaxtqw7ss" path="res://levels/base_level.tscn" id="1_4x4dy"]
+[ext_resource type="PackedScene" uid="uid://bqq68i2n5y6gq" path="res://mechanics/colored_surface/Base_block.tscn" id="2_ng7ms"]
+[ext_resource type="Resource" uid="uid://bimgqtwmsgw2x" path="res://levels/world_01/ressource/ressource_01_2.tres" id="2_y6crk"]
+[ext_resource type="PackedScene" uid="uid://cfhytrgfofrch" path="res://entities/player/Player.tscn" id="3_3g7pn"]
+[ext_resource type="Resource" uid="uid://b6kg2o1owp4bk" path="res://core/colors/yellow.tres" id="5_3g7pn"]
+[ext_resource type="Resource" uid="uid://cjuube0sw5dww" path="res://core/colors/Blue.tres" id="6_usb36"]
+[ext_resource type="Resource" uid="uid://ctcujjfd0pifi" path="res://core/colors/Red.tres" id="7_li2c0"]
+[ext_resource type="PackedScene" uid="uid://b54p32fx33pil" path="res://mechanics/change_color/brush.tscn" id="8_dfnvp"]
 
 [node name="BaseLevel" unique_id=1786062506 instance=ExtResource("1_4x4dy")]
+LevelData = ExtResource("2_y6crk")
+PlayerScene = ExtResource("3_3g7pn")
+
+[node name="SpawnPoint1" parent="." index="2" unique_id=555833650]
+position = Vector2(420, 560)
+
+[node name="SpawnPoint2" parent="." index="3" unique_id=716219891]
+position = Vector2(540, 560)
 
 [node name="Goal" parent="." index="4" unique_id=1791214673]
-position = Vector2(1068, 550)
+position = Vector2(768, 570)
+
+[node name="Layout" type="Node2D" parent="." index="6" unique_id=1845815806]
+
+[node name="BaseBlock4" parent="Layout" index="0" unique_id=898327258 instance=ExtResource("2_ng7ms")]
+position = Vector2(630, 570)
+Paint = ExtResource("5_3g7pn")
+Size = Vector2(20, 100)
+
+[node name="BaseBlock3" parent="Layout" index="1" unique_id=1471972880 instance=ExtResource("2_ng7ms")]
+position = Vector2(748, 520)
+Size = Vector2(250, 20)
+
+[node name="BaseBlock" parent="Layout" index="2" unique_id=2106147890 instance=ExtResource("2_ng7ms")]
+position = Vector2(310, 320)
+Size = Vector2(30, 600)
+
+[node name="BaseBlock2" parent="Layout" index="3" unique_id=1599741414 instance=ExtResource("2_ng7ms")]
+position = Vector2(870, 320)
+Size = Vector2(30, 600)
+
+[node name="BaseBlock5" parent="Layout" index="4" unique_id=921127373 instance=ExtResource("2_ng7ms")]
+position = Vector2(540, 440)
+Paint = ExtResource("6_usb36")
+Size = Vector2(100, 20)
+
+[node name="BaseBlock6" parent="Layout" index="5" unique_id=585511192 instance=ExtResource("2_ng7ms")]
+position = Vector2(650, 430)
+Paint = ExtResource("7_li2c0")
+Size = Vector2(100, 20)
+
+[node name="BaseBlock7" parent="Layout" index="6" unique_id=1330488307 instance=ExtResource("2_ng7ms")]
+position = Vector2(530, 240)
+Paint = ExtResource("7_li2c0")
+Size = Vector2(100, 20)
+
+[node name="BaseBlock8" parent="Layout" index="7" unique_id=1705387375 instance=ExtResource("2_ng7ms")]
+position = Vector2(590, 334)
+Paint = ExtResource("6_usb36")
+Size = Vector2(100, 20)
+
+[node name="BaseBlock9" parent="Layout" index="8" unique_id=520441253 instance=ExtResource("2_ng7ms")]
+position = Vector2(360, 160)
+Size = Vector2(100, 20)
+
+[node name="BaseBlock10" parent="Layout" index="9" unique_id=2068528986 instance=ExtResource("2_ng7ms")]
+position = Vector2(710, 324)
+Paint = ExtResource("7_li2c0")
+Size = Vector2(100, 20)
+
+[node name="BaseBlock11" parent="Layout" index="10" unique_id=147701905 instance=ExtResource("2_ng7ms")]
+position = Vector2(810, 160)
+Size = Vector2(100, 20)
+
+[node name="BaseBlock14" parent="Layout" index="11" unique_id=1207552652 instance=ExtResource("2_ng7ms")]
+position = Vector2(640, 230)
+Paint = ExtResource("6_usb36")
+Size = Vector2(100, 20)
+
+[node name="collectible_brush2" parent="Layout" index="12" unique_id=1920051231 instance=ExtResource("8_dfnvp")]
+position = Vector2(810, 120)
+Paint = ExtResource("5_3g7pn")
+
+[node name="collectible_brush" parent="Layout" index="13" unique_id=228092219 instance=ExtResource("8_dfnvp")]
+position = Vector2(360, 120)
+Paint = ExtResource("5_3g7pn")
+
+[node name="BaseBlock12" parent="Layout" index="14" unique_id=2080759847 instance=ExtResource("2_ng7ms")]
+position = Vector2(470, 344)
+Paint = ExtResource("7_li2c0")
+Size = Vector2(100, 20)

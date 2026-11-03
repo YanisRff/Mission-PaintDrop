@@ -39,6 +39,7 @@ script = ExtResource("1_mab2k")
 TrailLifetime = 1.0
 TrailWidth = 0.7999999999999999
 TrailMaterial = SubResource("ShaderMaterial_l3c03")
+JumpVelocity = -500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1654897554]
 shape = SubResource("CircleShape2D_tpdf6")
