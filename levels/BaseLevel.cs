@@ -23,6 +23,8 @@ public partial class BaseLevel : Node2D
 	[Export]
 	public SpawnPoint SpawnPoint2 { get; set; }
 
+	private float _levelStartTime;
+
 	public override void _Ready()
 	{
 		// Recherche automatique des nœuds s'ils ne sont pas assignés dans l'inspecteur
@@ -36,6 +38,12 @@ public partial class BaseLevel : Node2D
 		}
 
 		SpawnPlayersIfConfigured();
+		
+		// Démarre le chronomètre du niveau
+		_levelStartTime = Time.GetTicksMsec();
+
+		// Transmet le temps de début à LevelManager
+		LevelManager.Instance?.SetLevelStartTime(_levelStartTime);
 	}
 
 	/// <summary>
@@ -61,7 +69,13 @@ public partial class BaseLevel : Node2D
 
 		Node playerInstance = PlayerScene.Instantiate();
 
-		PaintColor startPaint = LevelData.StartPaints[playerIndex];
+		// Safe access to StartPaints with null checks
+		PaintColor startPaint = null;
+		if (LevelData != null && LevelData.StartPaints != null 
+		    && playerIndex < LevelData.StartPaints.Length)
+		{
+			startPaint = LevelData.StartPaints[playerIndex];
+		}
 
 		if (playerInstance is Node2D player2D)
 		{
@@ -80,8 +94,13 @@ public partial class BaseLevel : Node2D
 	/// </summary>
 	private void OnGoalCompleted()
 	{
-		GD.Print($"[BaseLevel] Victoire ! Niveau terminé : {LevelData?.LevelName ?? Name}");
-		EventBus.Instance?.EmitSignal(EventBus.SignalName.LevelCompleted, LevelData);
+		float completionTime = (Time.GetTicksMsec() - _levelStartTime) / 1000.0f;
+		GD.Print($"[BaseLevel] Victoire ! Niveau terminé : {LevelData?.LevelName ?? Name} en {completionTime:F2} secondes");
+		
+		// Émet l'événement avec les données du niveau et le temps de complétion
+		// Si LevelData est null, crée un LevelData temporaire
+		var levelDataToEmit = LevelData ?? new LevelData { LevelName = Name };
+		EventBus.Instance?.EmitSignal(EventBus.SignalName.LevelCompleted, levelDataToEmit, completionTime);
 	}
 
 	/// <summary>
@@ -98,5 +117,11 @@ public partial class BaseLevel : Node2D
 			return SpawnPoint2.GlobalPosition;
 		}
 		return GlobalPosition;
+	}
+
+	// Méthode pour obtenir le temps écoulé
+	public float GetElapsedTime()
+	{
+		return (Time.GetTicksMsec() - _levelStartTime) / 1000.0f;
 	}
 }

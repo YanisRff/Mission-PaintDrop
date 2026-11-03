@@ -5,6 +5,9 @@ public partial class BaseBlock : StaticBody2D
 {
 	private const float SizeStep = 10f;
 
+	// Marge autour du mur pour le quad du shader (doit être égale à MARGIN dans paint_wall.gdshader)
+	private const float Margin = 16f;
+
 	private PaintColor _paint;
 	private Vector2 _size = new(100, 100); // à adapter à la taille actuelle de tes murs
 
@@ -55,6 +58,17 @@ public partial class BaseBlock : StaticBody2D
 	{
 		if (_paint == null) return;
 
+		// Avec le shader de peinture : un quad centré, un peu plus grand que le mur.
+		// Le shader en découpe la capsule (il faut de la place pour les bords effilochés).
+		if (Material is ShaderMaterial)
+		{
+			var pad = new Vector2(Margin, Margin);
+			DrawRect(new Rect2(-_size / 2f - pad, _size + pad * 2f), _paint.DisplayColor);
+			return;
+		}
+
+		// Sans shader : rendu d'origine (capsule unie)
+		// Rayon = moitié du petit côté : les bouts sont complètement arrondis
 		var style = new StyleBoxFlat
 		{
 			BgColor = _paint.DisplayColor,

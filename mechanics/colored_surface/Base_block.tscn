@@ -1,14 +1,28 @@
 [gd_scene format=3 uid="uid://bqq68i2n5y6gq"]
 
+[ext_resource type="Shader" uid="uid://q2br8rnkr0br" path="res://assets/art/world/paint_wall.gdshader" id="1_8nyov"]
 [ext_resource type="Script" uid="uid://cr6i5hf1napt4" path="res://mechanics/colored_surface/BaseBlock.cs" id="1_q2mpv"]
 [ext_resource type="Resource" uid="uid://cfw1s7xn1c8x2" path="res://core/colors/Black.tres" id="2_8nyov"]
 [ext_resource type="Script" uid="uid://b0668yjneaxbu" path="res://core/components/ColorComponent.cs" id="2_cjd7w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wwc23"]
+shader = ExtResource("1_8nyov")
+shader_parameter/grain_size = 2.0
+shader_parameter/paper_show = 0.2
+shader_parameter/streak_length = 70.0
+shader_parameter/streak_width = 3.0
+shader_parameter/streak_contrast = 0.25
+shader_parameter/side_fray = 2.0
+shader_parameter/end_fray = 6.0
+shader_parameter/edge_pool = 0.25
+shader_parameter/pool_width = 5.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cjd7w"]
 resource_local_to_scene = true
 height = 20.0
 
 [node name="BaseBlock" type="StaticBody2D" unique_id=2106147890]
+material = SubResource("ShaderMaterial_wwc23")
 script = ExtResource("1_q2mpv")
 Paint = ExtResource("2_8nyov")
 Size = Vector2(20, 20)

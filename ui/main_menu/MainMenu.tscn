@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cqufsl8xmyw8a"]
+
+[ext_resource type="Script" path="res://ui/main_menu/MainMenu.cs" id="1_script"]
+
+[node name="MainMenu" type="Control" unique_id=94056739]
+layout_mode = 3
+anchor_right = 0.5
+anchor_bottom = 0.5
+script = ExtResource("1_script")
+
+[node name="Background" type="Panel" parent="." unique_id=366405843]
+self_modulate = Color(0.1, 0.1, 0.15, 1)
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 640.0
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1760813194]
+layout_mode = 0
+offset_left = 415.0
+offset_top = 200.0
+offset_right = 702.0
+offset_bottom = 267.0
+theme_override_colors/font_color = Color(1, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 48
+text = "PAINT DROP"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="." unique_id=1195654967]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 350.0
+offset_right = 660.0
+offset_bottom = 410.0
+text = "Start Game"
+
+[node name="QuitButton" type="Button" parent="." unique_id=1331381995]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 450.0
+offset_right = 660.0
+offset_bottom = 510.0
+text = "Quit"

@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bbe8kybqkwvg1"]
+
+[ext_resource type="Script" path="res://ui/pause_menu/PauseMenu.cs" id="1_script"]
+
+[node name="PauseMenu" type="Control" unique_id=296442141]
+layout_mode = 3
+anchor_right = 0.5
+anchor_bottom = 0.5
+script = ExtResource("1_script")
+
+[node name="Background" type="Panel" parent="." unique_id=2055569155]
+self_modulate = Color(0.15, 0.15, 0.18, 0.95)
+layout_mode = 0
+offset_left = 365.0
+offset_top = 145.0
+offset_right = 845.0
+offset_bottom = 505.0
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1024323749]
+layout_mode = 0
+offset_left = 363.0
+offset_top = 157.0
+offset_right = 843.0
+offset_bottom = 197.0
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="." unique_id=596769079]
+layout_mode = 0
+offset_left = 363.0
+offset_top = 197.0
+offset_right = 843.0
+offset_bottom = 227.0
+text = "Time: 00:00.000"
+horizontal_alignment = 1
+
+[node name="ResetButton" type="Button" parent="." unique_id=844399045]
+layout_mode = 0
+offset_left = 415.0
+offset_top = 340.0
+offset_right = 575.0
+offset_bottom = 380.0
+text = "Reset Level"
+
+[node name="MainMenuButton" type="Button" parent="." unique_id=945747022]
+layout_mode = 0
+offset_left = 635.0
+offset_top = 340.0
+offset_right = 795.0
+offset_bottom = 380.0
+text = "Main Menu"
+
+[node name="ResumeButton" type="Button" parent="." unique_id=646752397]
+layout_mode = 0
+offset_left = 535.0
+offset_top = 420.0
+offset_right = 695.0
+offset_bottom = 460.0
+text = "Resume"
