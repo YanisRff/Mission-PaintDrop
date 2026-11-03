@@ -34,8 +34,8 @@ public partial class MainMenu : Control
 
     private void OnStartButtonPressed()
     {
-    	GetTree().ChangeSceneToFile("res://levels/sandbox.tscn");
-        //EmitSignal(SignalName.StartGame);
+    	//GetTree().ChangeSceneToFile("res://levels/sandbox.tscn");
+        LevelManager.Instance.StartGame();
     }
 
     private void OnQuitButtonPressed()
