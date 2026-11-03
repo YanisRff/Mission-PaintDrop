@@ -26,39 +26,39 @@ position = Vector2(576, 296)
 [node name="Platforms" type="Node2D" parent="." index="5" unique_id=253699882]
 
 [node name="BaseBlock5" parent="Platforms" index="0" unique_id=2106147890 instance=ExtResource("4_7he1i")]
-position = Vector2(457, 491)
-rotation = 0.6981317
-scale = Vector2(10.771164, 0.99999994)
+position = Vector2(440.00003, 490)
+rotation = 0.7853982
 Paint = ExtResource("5_gck8l")
+Size = Vector2(200, 20)
 
 [node name="BaseBlock6" parent="Platforms" index="1" unique_id=147724936 instance=ExtResource("4_7he1i")]
-position = Vector2(694, 491)
-rotation = -0.6981317
-scale = Vector2(10.771, 1)
+position = Vector2(710, 489.99997)
+rotation = -0.7853982
 Paint = ExtResource("6_llpag")
+Size = Vector2(200, 20)
 
 [node name="BaseBlock7" parent="Platforms" index="2" unique_id=1943597672 instance=ExtResource("4_7he1i")]
 position = Vector2(240, 520)
-scale = Vector2(1, 10)
 Paint = ExtResource("6_llpag")
+Size = Vector2(20, 200)
 
 [node name="BaseBlock8" parent="Platforms" index="3" unique_id=142693461 instance=ExtResource("4_7he1i")]
 position = Vector2(912, 520)
-scale = Vector2(1, 10)
 Paint = ExtResource("5_gck8l")
+Size = Vector2(20, 200)
 
 [node name="BaseBlock" parent="Platforms" index="4" unique_id=131428228 instance=ExtResource("4_7he1i")]
 position = Vector2(576, 352)
-scale = Vector2(19, 1)
+Size = Vector2(500, 20)
 
 [node name="BaseBlock2" parent="Platforms" index="5" unique_id=870725858 instance=ExtResource("4_7he1i")]
 position = Vector2(576, 560)
-scale = Vector2(19, 1)
+Size = Vector2(400, 20)
 
 [node name="BaseBlock3" parent="Platforms" index="6" unique_id=691285833 instance=ExtResource("4_7he1i")]
 position = Vector2(199.99998, 424)
-scale = Vector2(18.04, 1)
+Size = Vector2(360, 20)
 
 [node name="BaseBlock4" parent="Platforms" index="7" unique_id=768371821 instance=ExtResource("4_7he1i")]
 position = Vector2(952, 424)
-scale = Vector2(18.155, 1)
+Size = Vector2(360, 20)
