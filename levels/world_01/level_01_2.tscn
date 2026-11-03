@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cw05jmkibwoll"]
+
+[ext_resource type="PackedScene" uid="uid://d0hotaxtqw7ss" path="res://levels/base_level.tscn" id="1_4x4dy"]
+
+[node name="BaseLevel" unique_id=1786062506 instance=ExtResource("1_4x4dy")]
+
+[node name="Goal" parent="." index="4" unique_id=1791214673]
+position = Vector2(1068, 550)

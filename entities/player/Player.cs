@@ -1,11 +1,14 @@
 // entities/player/Player.cs
+using System.Runtime.CompilerServices;
 using Godot;
 
 public partial class Player : CharacterBody2D
 {
     [Export(PropertyHint.Range, "0,1,1")] public int PlayerIndex { get; set; } = 0;
 
-    // Couleur de la goutte, transmise au ColorComponent
+    // ------------------------------
+    // Visual
+    // ------------------------------
     [Export] public PaintColor Paint { get; set; }
 
     [ExportGroup("Apparence")]
@@ -19,6 +22,10 @@ public partial class Player : CharacterBody2D
     [Export(PropertyHint.Range, "0.1,1.2,0.05")] public float TrailWidth { get; set; } = 0.7f;
     // ShaderMaterial avec paint_trail.gdshader (peut être partagé entre les joueurs)
     [Export] public Material TrailMaterial { get; set; }
+
+    // ------------------------------
+    // player control
+    // ------------------------------
 
     [ExportGroup("Mouvement")]
     [Export] public float Speed { get; set; } = 220f;
@@ -42,6 +49,7 @@ public partial class Player : CharacterBody2D
 
     // Shader de la goutte (copie propre à chaque joueur)
     private ShaderMaterial _paintMaterial;
+    private PaintTrail _trail;
     private Vector2 _visualVelocity;
     private float _squash;
 
@@ -52,6 +60,13 @@ public partial class Player : CharacterBody2D
     public override void _EnterTree()
     {
         GetNode<ColorComponent>("ColorComponent").Color = Paint;
+    }
+
+    public override void _ExitTree()
+    {
+        // Évite que l'EventBus appelle un joueur qui n'existe plus
+        if (EventBus.Instance != null)
+            EventBus.Instance.ColorChanged -= OnColorChanged;
     }
 
     public override void _Ready()
@@ -73,6 +88,8 @@ public partial class Player : CharacterBody2D
         SetupTrail();
 
         QueueRedraw();
+
+        EventBus.Instance.ColorChanged += OnColorChanged;
     }
 
     private void SetupPaintShader()
@@ -95,7 +112,7 @@ public partial class Player : CharacterBody2D
         if (!LeaveTrail)
             return;
 
-        var trail = new PaintTrail
+        _trail = new PaintTrail
         {
             Target = this,
             TrailColor = Paint?.DisplayColor ?? Colors.White,
@@ -107,7 +124,7 @@ public partial class Player : CharacterBody2D
         // Le parent est occupé à instancier ses enfants : on ajoute le nœud en différé.
         // La traînée est un frère du joueur (pas un enfant) : elle reste en place
         // quand le joueur bouge et ne subit pas son Modulate.
-        GetParent().CallDeferred(Node.MethodName.AddChild, trail);
+        GetParent().CallDeferred(Node.MethodName.AddChild, _trail);
     }
 
     // Quad blanc plus grand que le cercle : le shader découpe la goutte dedans
@@ -180,5 +197,20 @@ public partial class Player : CharacterBody2D
 
         _paintMaterial.SetShaderParameter("velocity", _visualVelocity);
         _paintMaterial.SetShaderParameter("squash", _squash);
+    }
+
+    private void OnColorChanged(int playerIndex, PaintColor newColor)
+    {
+        if (playerIndex != PlayerIndex)
+            return;
+
+        Paint = newColor;
+
+        // La goutte (et les layers) via le ColorComponent
+        GetNode<ColorComponent>("ColorComponent").Color = newColor;
+
+        // La nouvelle peinture de la traînée : ce qui est déjà posé garde son ancienne couleur
+        if (IsInstanceValid(_trail))
+            _trail.TrailColor = newColor?.DisplayColor ?? Colors.White;
     }
 }

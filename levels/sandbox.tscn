@@ -6,6 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://bqq68i2n5y6gq" path="res://mechanics/colored_surface/Base_block.tscn" id="4_7he1i"]
 [ext_resource type="Resource" uid="uid://ctcujjfd0pifi" path="res://core/colors/Red.tres" id="5_gck8l"]
 [ext_resource type="Resource" uid="uid://cjuube0sw5dww" path="res://core/colors/Blue.tres" id="6_llpag"]
+[ext_resource type="PackedScene" uid="uid://b54p32fx33pil" path="res://mechanics/change_color/brush.tscn" id="7_llpag"]
+[ext_resource type="Resource" uid="uid://btqa5lssvxdv8" path="res://core/colors/Purple.tres" id="8_tv6ri"]
+[ext_resource type="Resource" uid="uid://2miujhd7so86" path="res://core/colors/Orange.tres" id="9_rgshf"]
+[ext_resource type="Resource" uid="uid://dte7cyfa46ral" path="res://core/colors/Green.tres" id="10_50mym"]
+[ext_resource type="Resource" uid="uid://b6kg2o1owp4bk" path="res://core/colors/yellow.tres" id="11_pkbto"]
 
 [node name="Sandbox" unique_id=1638834778 instance=ExtResource("1_base")]
 LevelData = ExtResource("2_85hcc")
@@ -62,3 +67,33 @@ Size = Vector2(360, 20)
 [node name="BaseBlock4" parent="Platforms" index="7" unique_id=768371821 instance=ExtResource("4_7he1i")]
 position = Vector2(952, 424)
 Size = Vector2(360, 20)
+
+[node name="collectible_brush" parent="." index="7" unique_id=1920051231 instance=ExtResource("7_llpag")]
+position = Vector2(120, 380)
+collision_mask = 2
+Paint = ExtResource("8_tv6ri")
+
+[node name="collectible_brush2" parent="." index="8" unique_id=1557173994 instance=ExtResource("7_llpag")]
+position = Vector2(210, 380)
+collision_mask = 2
+Paint = ExtResource("9_rgshf")
+
+[node name="collectible_brush3" parent="." index="9" unique_id=1116486983 instance=ExtResource("7_llpag")]
+position = Vector2(1040, 380)
+collision_mask = 2
+Paint = ExtResource("6_llpag")
+
+[node name="collectible_brush4" parent="." index="10" unique_id=1760766036 instance=ExtResource("7_llpag")]
+position = Vector2(900, 380)
+collision_mask = 2
+Paint = ExtResource("10_50mym")
+
+[node name="collectible_brush5" parent="." index="11" unique_id=311145890 instance=ExtResource("7_llpag")]
+position = Vector2(760, 310)
+collision_mask = 2
+Paint = ExtResource("11_pkbto")
+
+[node name="collectible_brush6" parent="." index="12" unique_id=1896616845 instance=ExtResource("7_llpag")]
+position = Vector2(390, 310)
+collision_mask = 2
+Paint = ExtResource("5_gck8l")

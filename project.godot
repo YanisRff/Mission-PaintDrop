@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Mission-PaintDrop"
-run/main_scene="res://levels/sandbox.tscn"
+run/main_scene="uid://bhyw3fppurulw"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -27,6 +27,10 @@ window/stretch/aspect="expand"
 [dotnet]
 
 project/assembly_name="MissionPaintDrop"
+
+[global_group]
+
+Player=""
 
 [input]
 

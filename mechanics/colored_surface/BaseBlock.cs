@@ -55,7 +55,6 @@ public partial class BaseBlock : StaticBody2D
 	{
 		if (_paint == null) return;
 
-		// Rayon = moitié du petit côté : les bouts sont complètement arrondis
 		var style = new StyleBoxFlat
 		{
 			BgColor = _paint.DisplayColor,
