@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cfhytrgfofrch" path="res://entities/player/Player.tscn" id="2_3sgcb"]
 [ext_resource type="Resource" uid="uid://k1rsld4ywj15" path="res://levels/world_01/ressource/ressource_01_1.tres" id="2_rpo0m"]
 [ext_resource type="PackedScene" uid="uid://bqq68i2n5y6gq" path="res://mechanics/colored_surface/Base_block.tscn" id="3_rpo0m"]
-[ext_resource type="Resource" uid="uid://ctcujjfd0pifi" path="res://core/colors/Red.tres" id="4_5s7di"]
-[ext_resource type="Resource" uid="uid://cjuube0sw5dww" path="res://core/colors/Blue.tres" id="5_136o0"]
+[ext_resource type="Resource" uid="uid://ctcujjfd0pifi" path="res://core/colors/red.tres" id="4_5s7di"]
+[ext_resource type="Resource" uid="uid://cjuube0sw5dww" path="res://core/colors/blue.tres" id="5_136o0"]
 
 [node name="BaseLevel" unique_id=1786062506 instance=ExtResource("1_n35st")]
 LevelData = ExtResource("2_rpo0m")
