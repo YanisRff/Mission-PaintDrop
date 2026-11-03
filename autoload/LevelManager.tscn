@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://ldo65goih0jb"]
 
 [ext_resource type="Script" path="res://autoload/LevelManager.cs" id="1_script"]
-[ext_resource type="Resource" uid="uid://bypljbpjsii6m" path="res://levels/sandbox_data.tres" id="2_xxcy5"]
+[ext_resource type="Resource" uid="uid://k1rsld4ywj15" path="res://levels/world_01/ressource/ressource_01_1.tres" id="2_xxcy5"]
 [ext_resource type="PackedScene" uid="uid://cqufsl8xmyw8a" path="res://ui/main_menu/MainMenu.tscn" id="3_m5g3u"]
 [ext_resource type="PackedScene" uid="uid://qpryhumuabue" path="res://ui/victory/VictoryWindow.tscn" id="4_05ohj"]
-[ext_resource type="PackedScene" path="res://ui/pause_menu/PauseMenu.tscn" id="5_xl3k4"]
+[ext_resource type="PackedScene" uid="uid://bbe8kybqkwvg1" path="res://ui/pause_menu/PauseMenu.tscn" id="5_xl3k4"]
 
 [node name="LevelManager" type="Node" unique_id=734835531]
 script = ExtResource("1_script")
