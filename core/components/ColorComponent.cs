@@ -16,9 +16,6 @@ public partial class ColorComponent : Node
         BlockedByOwnColor     // bloqué par sa propre couleur, traverse les autres
     }
 
-    [Signal]
-    public delegate void ColorChangedEventHandler(PaintColor newColor);
-
     [Export] public ComponentRole Role { get; set; } = ComponentRole.Surface;
 
     // Ne sert que pour le rôle Body
@@ -38,7 +35,6 @@ public partial class ColorComponent : Node
             _color = value;
             if (!IsNodeReady()) return; // pendant le chargement de la scène, _Ready() s'en charge
             Apply();
-            EmitSignal(SignalName.ColorChanged, _color);
         }
     }
 
@@ -76,6 +72,7 @@ public partial class ColorComponent : Node
 
         if (TintParent)
             body.Modulate = _color.DisplayColor;
+
     }
 
     // La règle « quelle couleur bloque quelle couleur » vit uniquement ici

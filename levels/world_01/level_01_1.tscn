@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://oousd0rs08mv"]
+
+[ext_resource type="PackedScene" uid="uid://d0hotaxtqw7ss" path="res://levels/base_level.tscn" id="1_n35st"]
+[ext_resource type="PackedScene" uid="uid://cfhytrgfofrch" path="res://entities/player/Player.tscn" id="2_3sgcb"]
+[ext_resource type="Resource" uid="uid://k1rsld4ywj15" path="res://levels/world_01/ressource/ressource_01_1.tres" id="2_rpo0m"]
+[ext_resource type="PackedScene" uid="uid://bqq68i2n5y6gq" path="res://mechanics/colored_surface/Base_block.tscn" id="3_rpo0m"]
+[ext_resource type="Resource" uid="uid://ctcujjfd0pifi" path="res://core/colors/Red.tres" id="4_5s7di"]
+[ext_resource type="Resource" uid="uid://cjuube0sw5dww" path="res://core/colors/Blue.tres" id="5_136o0"]
+
+[node name="BaseLevel" unique_id=1786062506 instance=ExtResource("1_n35st")]
+LevelData = ExtResource("2_rpo0m")
+PlayerScene = ExtResource("2_3sgcb")
+
+[node name="ColorRect" parent="." index="0" unique_id=1491060486]
+offset_left = 20.0
+offset_right = 1134.0
+
+[node name="SpawnPoint2" parent="." index="3" unique_id=716219891]
+position = Vector2(1030, 550)
+
+[node name="Goal" parent="." index="4" unique_id=1791214673]
+position = Vector2(576, 217)
+
+[node name="Platforms" type="Node2D" parent="." index="6" unique_id=671659441]
+
+[node name="BaseBlock5" parent="Platforms" index="0" unique_id=2106147890 instance=ExtResource("3_rpo0m")]
+position = Vector2(460, 460.00003)
+rotation = 0.7853982
+Paint = ExtResource("4_5s7di")
+Size = Vector2(260, 20)
+
+[node name="BaseBlock6" parent="Platforms" index="1" unique_id=1668061188 instance=ExtResource("3_rpo0m")]
+position = Vector2(690.00006, 460.00003)
+rotation = -0.7853982
+Paint = ExtResource("5_136o0")
+Size = Vector2(260, 20)
+
+[node name="BaseBlock7" parent="Platforms" index="2" unique_id=687134990 instance=ExtResource("3_rpo0m")]
+position = Vector2(240, 500)
+Paint = ExtResource("5_136o0")
+Size = Vector2(20, 240)
+
+[node name="BaseBlock8" parent="Platforms" index="3" unique_id=1156656019 instance=ExtResource("3_rpo0m")]
+position = Vector2(912, 500)
+Paint = ExtResource("4_5s7di")
+Size = Vector2(20, 240)
+
+[node name="BaseBlock" parent="Platforms" index="4" unique_id=456365143 instance=ExtResource("3_rpo0m")]
+position = Vector2(576, 269)
+Size = Vector2(500, 20)
+
+[node name="BaseBlock2" parent="Platforms" index="5" unique_id=974998975 instance=ExtResource("3_rpo0m")]
+position = Vector2(576, 550)
+Size = Vector2(400, 20)
+
+[node name="BaseBlock3" parent="Platforms" index="6" unique_id=1409267382 instance=ExtResource("3_rpo0m")]
+position = Vector2(199.99998, 374)
+Size = Vector2(360, 20)
+
+[node name="BaseBlock4" parent="Platforms" index="7" unique_id=381549878 instance=ExtResource("3_rpo0m")]
+position = Vector2(950, 374)
+Size = Vector2(360, 20)

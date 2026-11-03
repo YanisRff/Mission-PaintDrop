@@ -33,12 +33,13 @@ shader_parameter/streak_count = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tpdf6"]
 
-[node name="Player" type="CharacterBody2D" unique_id=1886899338]
+[node name="Player" type="CharacterBody2D" unique_id=1886899338 groups=["Player"]]
 material = SubResource("ShaderMaterial_3ogdy")
 script = ExtResource("1_mab2k")
 TrailLifetime = 1.0
 TrailWidth = 0.7999999999999999
 TrailMaterial = SubResource("ShaderMaterial_l3c03")
+JumpVelocity = -500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1654897554]
 shape = SubResource("CircleShape2D_tpdf6")

@@ -15,6 +15,11 @@ using Godot;
 public partial class PaintTrail : Node2D
 {
     public Node2D Target { get; set; }
+
+    /// <summary>
+    /// Couleur de la peinture déposée à partir de maintenant. On peut la changer
+    /// à tout moment : la peinture déjà posée garde sa couleur et sèche normalement.
+    /// </summary>
     public Color TrailColor { get; set; } = Colors.White;
 
     /// <summary>Durée de vie d'un point, en secondes.</summary>
@@ -33,6 +38,7 @@ public partial class PaintTrail : Node2D
     {
         public Vector2 Pos;
         public float Born;
+        public Color Color; // couleur de la peinture à cet endroit
         public bool Break; // true : ne pas relier au point précédent
     }
 
@@ -72,13 +78,13 @@ public partial class PaintTrail : Node2D
 
             if (_points.Count == 0)
             {
-                _points.Add(new TrailPoint { Pos = _head, Born = _time });
+                _points.Add(new TrailPoint { Pos = _head, Born = _time, Color = TrailColor });
             }
             else
             {
                 float dist = _head.DistanceTo(_points[^1].Pos);
                 if (dist >= MinSpacing)
-                    _points.Add(new TrailPoint { Pos = _head, Born = _time, Break = dist > BreakDistance });
+                    _points.Add(new TrailPoint { Pos = _head, Born = _time, Color = TrailColor, Break = dist > BreakDistance });
             }
         }
         else if (_points.Count == 0)
@@ -102,18 +108,21 @@ public partial class PaintTrail : Node2D
         var age = new float[n];
         var connected = new bool[n]; // le point i est-il relié au point i-1 ?
         var along = new float[n];    // distance cumulée le long du ruban
+        var tint = new Color[n];     // couleur de la peinture à chaque point
 
         for (int i = 0; i < n; i++)
         {
             if (i < stored)
             {
                 pos[i] = _points[i].Pos;
+                tint[i] = _points[i].Color;
                 age[i] = Mathf.Clamp((_time - _points[i].Born) / Lifetime, 0f, 1f);
                 connected[i] = i > 0 && !_points[i].Break;
             }
             else
             {
                 pos[i] = _head;
+                tint[i] = TrailColor;
                 age[i] = 0f;
                 connected[i] = true;
             }
@@ -142,7 +151,7 @@ public partial class PaintTrail : Node2D
 
             // Alpha = fraîcheur de la peinture : le shader en fait un séchage progressif
             float fresh = 1f - SmoothStep(HoldRatio, 1f, t);
-            colors[i] = new Color(TrailColor, fresh);
+            colors[i] = new Color(tint[i], fresh);
         }
 
         for (int i = 0; i < n - 1; i++)

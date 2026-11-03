@@ -29,6 +29,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="MissionPaintDrop"
 
+[global_group]
+
+Player=""
+
 [input]
 
 p1_left={
