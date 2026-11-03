@@ -121,6 +121,10 @@ public partial class Player : CharacterBody2D
 
     public override void _PhysicsProcess(double delta)
     {
+        if (LevelManager.Instance != null && LevelManager.Instance.IsPaused)
+        {
+            return;
+        }
         float dt = (float)delta;
         Vector2 velocity = Velocity;
 
