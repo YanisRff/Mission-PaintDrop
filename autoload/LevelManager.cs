@@ -127,8 +127,6 @@ public partial class LevelManager : Node
 
 	/// <summary>
 	/// Charge le niveau spécifié.
-	/// Note: Pour charger des niveaux dynamiquement, configurez une correspondance
-	/// entre LevelData et PackedScenes dans l'inspecteur.
 	/// </summary>
 	public void LoadLevel(LevelData levelData)
 	{
@@ -142,6 +140,23 @@ public partial class LevelManager : Node
 		CurrentLevel = levelData;
 
 		GD.Print($"[LevelManager] Level set: {levelData.LevelName}");
+		
+		// Décharge l'ancien niveau
+		UnloadCurrentLevel();
+		
+		// Charge la scène associée au LevelData
+		PackedScene levelScene = levelData.GetLevelScene();
+		if (levelScene != null)
+		{
+			CurrentLevelInstance = levelScene.Instantiate();
+			GetTree().Root.AddChild(CurrentLevelInstance);
+			GD.Print($"[LevelManager] Loaded scene: {levelScene.ResourceName}");
+		}
+		else
+		{
+			GD.PrintErr($"[LevelManager] Failed to load scene for {levelData.LevelName} (path: {levelData.LevelScenePath})");
+		}
+		
 		EmitSignal(SignalName.LevelLoaded, levelData);
 		
 		if (previousLevel != null)
@@ -177,13 +192,12 @@ public partial class LevelManager : Node
 		if (CurrentLevel?.NextLevel != null)
 		{
 			GD.Print($"[LevelManager] Next level: {CurrentLevel.NextLevel.LevelName}");
-			// TODO: Implémenter le chargement de la scène pour NextLevel
-			// Exemple: GetTree().ChangeSceneToFile("res://levels/world_01.tscn");
+			LoadLevel(CurrentLevel.NextLevel);
 		}
 		else
 		{
 			GD.Print("[LevelManager] No next level! This was the last level.");
-			// TODO: Return to main menu or show completion screen
+			ReturnToMainMenu();
 		}
 	}
 
