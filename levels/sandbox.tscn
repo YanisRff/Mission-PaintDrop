@@ -3,14 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://d0hotaxtqw7ss" path="res://levels/base_level.tscn" id="1_base"]
 [ext_resource type="Resource" uid="uid://bypljbpjsii6m" path="res://levels/sandbox_data.tres" id="2_85hcc"]
 [ext_resource type="PackedScene" uid="uid://cfhytrgfofrch" path="res://entities/player/Player.tscn" id="2_whpuv"]
-[ext_resource type="PackedScene" uid="uid://bqq68i2n5y6gq" path="res://mechanics/colored_surface/Base_block.tscn" id="4_7he1i"]
-[ext_resource type="Resource" uid="uid://ctcujjfd0pifi" path="res://core/colors/red.tres" id="5_gck8l"]
-[ext_resource type="Resource" uid="uid://cjuube0sw5dww" path="res://core/colors/blue.tres" id="6_llpag"]
-[ext_resource type="PackedScene" uid="uid://b54p32fx33pil" path="res://mechanics/change_color/brush.tscn" id="7_llpag"]
-[ext_resource type="Resource" uid="uid://btqa5lssvxdv8" path="res://core/colors/Purple.tres" id="8_tv6ri"]
-[ext_resource type="Resource" uid="uid://2miujhd7so86" path="res://core/colors/Orange.tres" id="9_rgshf"]
-[ext_resource type="Resource" uid="uid://dte7cyfa46ral" path="res://core/colors/Green.tres" id="10_50mym"]
-[ext_resource type="Resource" uid="uid://b6kg2o1owp4bk" path="res://core/colors/yellow.tres" id="11_pkbto"]
+[ext_resource type="PackedScene" uid="uid://c3lqlwek0sjed" path="res://mechanics/colored_surface/trigger/block_trigger.tscn" id="4_0glgv"]
+[ext_resource type="Resource" uid="uid://ctcujjfd0pifi" path="res://core/colors/Red.tres" id="5_gck8l"]
+[ext_resource type="Resource" uid="uid://cjuube0sw5dww" path="res://core/colors/Blue.tres" id="6_llpag"]
+[ext_resource type="PackedScene" uid="uid://cgc0kjsf166es" path="res://mechanics/colored_surface/trigger/ButtonTrigger.tscn" id="7_llpag"]
 
 [node name="Sandbox" unique_id=1638834778 instance=ExtResource("1_base")]
 LevelData = ExtResource("2_85hcc")
@@ -30,70 +26,15 @@ position = Vector2(576, 296)
 
 [node name="Platforms" type="Node2D" parent="." index="5" unique_id=253699882]
 
-[node name="BaseBlock5" parent="Platforms" index="0" unique_id=2106147890 instance=ExtResource("4_7he1i")]
-position = Vector2(440.00003, 490)
-rotation = 0.7853982
+[node name="BaseBlock" parent="." index="7" unique_id=2106147890 instance=ExtResource("4_0glgv")]
+position = Vector2(390, 520)
+Channel = &"test"
+TransitionDuration = 0.35
+TriggeredPaint = ExtResource("6_llpag")
 Paint = ExtResource("5_gck8l")
-Size = Vector2(100, 100)
+Size = Vector2(40, 200)
 
-[node name="BaseBlock6" parent="Platforms" index="1" unique_id=147724936 instance=ExtResource("4_7he1i")]
-position = Vector2(710, 489.99997)
-rotation = -0.7853982
+[node name="ButtonTrigger" parent="." index="8" unique_id=1075677498 instance=ExtResource("7_llpag")]
+position = Vector2(760, 620)
+Channel = &"test"
 Paint = ExtResource("6_llpag")
-Size = Vector2(100, 100)
-
-[node name="BaseBlock7" parent="Platforms" index="2" unique_id=1943597672 instance=ExtResource("4_7he1i")]
-position = Vector2(240, 520)
-Paint = ExtResource("6_llpag")
-Size = Vector2(100, 100)
-
-[node name="BaseBlock8" parent="Platforms" index="3" unique_id=142693461 instance=ExtResource("4_7he1i")]
-position = Vector2(912, 520)
-Paint = ExtResource("5_gck8l")
-Size = Vector2(100, 100)
-
-[node name="BaseBlock" parent="Platforms" index="4" unique_id=131428228 instance=ExtResource("4_7he1i")]
-position = Vector2(576, 352)
-Size = Vector2(100, 100)
-
-[node name="BaseBlock2" parent="Platforms" index="5" unique_id=870725858 instance=ExtResource("4_7he1i")]
-position = Vector2(576, 560)
-Size = Vector2(100, 100)
-
-[node name="BaseBlock3" parent="Platforms" index="6" unique_id=691285833 instance=ExtResource("4_7he1i")]
-position = Vector2(199.99998, 424)
-Size = Vector2(100, 100)
-
-[node name="BaseBlock4" parent="Platforms" index="7" unique_id=768371821 instance=ExtResource("4_7he1i")]
-position = Vector2(952, 424)
-Size = Vector2(100, 100)
-
-[node name="collectible_brush" parent="." index="7" unique_id=1920051231 instance=ExtResource("7_llpag")]
-position = Vector2(120, 380)
-collision_mask = 2
-Paint = ExtResource("8_tv6ri")
-
-[node name="collectible_brush2" parent="." index="8" unique_id=1557173994 instance=ExtResource("7_llpag")]
-position = Vector2(210, 380)
-collision_mask = 2
-Paint = ExtResource("9_rgshf")
-
-[node name="collectible_brush3" parent="." index="9" unique_id=1116486983 instance=ExtResource("7_llpag")]
-position = Vector2(1040, 380)
-collision_mask = 2
-Paint = ExtResource("6_llpag")
-
-[node name="collectible_brush4" parent="." index="10" unique_id=1760766036 instance=ExtResource("7_llpag")]
-position = Vector2(900, 380)
-collision_mask = 2
-Paint = ExtResource("10_50mym")
-
-[node name="collectible_brush5" parent="." index="11" unique_id=311145890 instance=ExtResource("7_llpag")]
-position = Vector2(760, 310)
-collision_mask = 2
-Paint = ExtResource("11_pkbto")
-
-[node name="collectible_brush6" parent="." index="12" unique_id=1896616845 instance=ExtResource("7_llpag")]
-position = Vector2(390, 310)
-collision_mask = 2
-Paint = ExtResource("5_gck8l")
