@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cgc0kjsf166es"]
+
+[ext_resource type="Script" uid="uid://glu3g8jnggvs" path="res://mechanics/colored_surface/trigger/ButtonTrigger.cs" id="1_67c6c"]
+[ext_resource type="Script" uid="uid://b0668yjneaxbu" path="res://core/components/ColorComponent.cs" id="2_p3nn0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpdf6"]
+resource_local_to_scene = true
+
+[node name="ButtonTrigger" type="Area2D" unique_id=1505322308]
+script = ExtResource("1_67c6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1473847230]
+shape = SubResource("RectangleShape2D_tpdf6")
+
+[node name="ColorComponent" type="Node" parent="." unique_id=90624502]
+script = ExtResource("2_p3nn0")
+metadata/_custom_type_script = "uid://b0668yjneaxbu"

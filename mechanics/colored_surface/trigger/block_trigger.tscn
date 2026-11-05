@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c3lqlwek0sjed"]
+
+[ext_resource type="PackedScene" uid="uid://bqq68i2n5y6gq" path="res://mechanics/colored_surface/Base_block.tscn" id="1_2bidu"]
+[ext_resource type="Script" uid="uid://d3g00pm86cmms" path="res://mechanics/colored_surface/trigger/BlockTrigger.cs" id="2_sf8y6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qvwl7"]
+resource_local_to_scene = true
+height = 20.0
+
+[node name="BaseBlock" unique_id=2106147890 instance=ExtResource("1_2bidu")]
+script = ExtResource("2_sf8y6")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=113893054]
+shape = SubResource("CapsuleShape2D_qvwl7")

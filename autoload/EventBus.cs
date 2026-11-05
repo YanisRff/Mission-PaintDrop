@@ -16,6 +16,8 @@ public partial class EventBus : Node
 	[Signal]
 	public delegate void ColorChangedEventHandler(int playerIndex, PaintColor newColor);
 
+	[Signal] public delegate void TriggerChangedEventHandler(StringName channel, bool active);
+
 	public override void _EnterTree()
 	{
 		if (Instance == null)

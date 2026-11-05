@@ -5,11 +5,18 @@ public partial class BaseBlock : StaticBody2D
 {
 	private const float SizeStep = 10f;
 
+
 	// Marge autour du mur pour le quad du shader (doit être égale à MARGIN dans paint_wall.gdshader)
-	private const float Margin = 16f;
+	public const float Margin = 16f;
 
 	private PaintColor _paint;
 	private Vector2 _size = new(100, 100); // à adapter à la taille actuelle de tes murs
+
+	// Couleur utilisée pour les collisions (surchargée par BlockTrigger)
+	protected virtual PaintColor ActivePaint => _paint;
+
+	// Couleur utilisée pour le dessin (surchargée par BlockTrigger pour l'animer)
+	protected virtual Color ActiveDisplayColor => _paint?.DisplayColor ?? Colors.White;
 
 	[Export]
 	public PaintColor Paint
@@ -58,12 +65,14 @@ public partial class BaseBlock : StaticBody2D
 	{
 		if (_paint == null) return;
 
+		var color = ActiveDisplayColor;
+
 		// Avec le shader de peinture : un quad centré, un peu plus grand que le mur.
 		// Le shader en découpe la capsule (il faut de la place pour les bords effilochés).
 		if (Material is ShaderMaterial)
 		{
 			var pad = new Vector2(Margin, Margin);
-			DrawRect(new Rect2(-_size / 2f - pad, _size + pad * 2f), _paint.DisplayColor);
+			DrawRect(new Rect2(-_size / 2f - pad, _size + pad * 2f), color);
 			return;
 		}
 
@@ -71,7 +80,7 @@ public partial class BaseBlock : StaticBody2D
 		// Rayon = moitié du petit côté : les bouts sont complètement arrondis
 		var style = new StyleBoxFlat
 		{
-			BgColor = _paint.DisplayColor,
+			BgColor = color,
 			AntiAliasing = true,
 			CornerDetail = 16
 		};
@@ -81,7 +90,7 @@ public partial class BaseBlock : StaticBody2D
 		DrawStyleBox(style, new Rect2(-_size / 2f, _size));
 	}
 
-	private void Refresh()
+	protected virtual void Refresh()
 	{
 		// Pendant le chargement de la scène, _Ready() s'en charge
 		if (!IsNodeReady()) return;
@@ -107,6 +116,6 @@ public partial class BaseBlock : StaticBody2D
 
 		var component = GetNodeOrNull<ColorComponent>("ColorComponent");
 		if (component != null)
-			component.Color = _paint;
+			component.Color = ActivePaint;
 	}
 }

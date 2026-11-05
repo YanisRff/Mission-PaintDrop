@@ -24,6 +24,9 @@ public partial class ColorComponent : Node
     // Teinte le parent avec DisplayColor (pratique pour les placeholders)
     [Export] public bool TintParent { get; set; } = true;
 
+    [Signal]
+    public delegate void ColorChangedEventHandler(PaintColor newColor);
+
     private PaintColor _color;
 
     [Export]
