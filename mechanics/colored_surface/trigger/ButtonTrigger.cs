@@ -28,7 +28,6 @@ public partial class ButtonTrigger : Area2D
 	{
 		AntiAliasing = true,
 		CornerDetail = 8,
-		BgColor = new Color(0.18f, 0.18f, 0.2f)
 	};
 
 	[Export] public StringName Channel { get; set; }
@@ -121,6 +120,7 @@ public partial class ButtonTrigger : Area2D
 		_plateStyle.BgColor = _paint?.DisplayColor ?? Colors.White;
 		DrawStyleBox(_plateStyle, new Rect2(-halfWidth, top, _width, bottom - top));
 
+		_socleStyle.BgColor = _paint?.DisplayColor ?? Colors.White;
 		DrawStyleBox(_socleStyle, new Rect2(
 			-halfWidth - SocleOverhang, -SocleHeight,
 			_width + SocleOverhang * 2f, SocleHeight));
@@ -156,18 +156,24 @@ public partial class ButtonTrigger : Area2D
 	}
 
 	// Le rôle Surface de ColorComponent met le mask à 0 : on le réécrit pour détecter les joueurs
-	private void ApplyDetectionMask() => CollisionMask = PhysicsLayers.PlayerMask;
+	private void ApplyDetectionMask() => CollisionMask = PhysicsLayers.WorldMask | uint.MaxValue << (PhysicsLayers.FirstLayerColor - 1) & ~ Paint.LayerMask;
 
 	private void OnBodyEntered(Node2D body)
 	{
-		_bodyCount++;
-		if (_bodyCount == 1) Press();
+		if(body.IsInGroup("Interactor"))
+		{
+			_bodyCount++;
+			if (_bodyCount == 1) Press();
+		}
 	}
 
 	private void OnBodyExited(Node2D body)
 	{
-		_bodyCount = Mathf.Max(0, _bodyCount - 1);
-		if (_bodyCount == 0) Release();
+		if (body.IsInGroup("Interactor"))
+		{
+			_bodyCount = Mathf.Max(0, _bodyCount - 1);
+			if (_bodyCount == 0) Release();
+		}
 	}
 
 	private void Press()

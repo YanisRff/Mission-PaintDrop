@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://73q1ihrbucev"]
+
+[ext_resource type="PackedScene" uid="uid://cfhytrgfofrch" path="res://entities/player/Player.tscn" id="1_qa440"]
+
+[node name="Player" unique_id=1886899338 instance=ExtResource("1_qa440")]
+Radius = 12.0
+Speed = 165.0
+Acceleration = 1200.0
+JumpVelocity = -300.0
+Gravity = 900.0

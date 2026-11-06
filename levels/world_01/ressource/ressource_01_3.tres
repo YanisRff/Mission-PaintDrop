@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://b0wcaoyg25gvh"]
+
+[ext_resource type="Script" uid="uid://b0x4n1403yc0i" path="res://levels/LevelData.cs" id="1_ck1bo"]
+[ext_resource type="Resource" uid="uid://iotvl8dl8n4m" path="res://levels/world_01/ressource/ressource_01_4.tres" id="1_enobs"]
+[ext_resource type="Resource" uid="uid://cjuube0sw5dww" path="res://core/colors/Blue.tres" id="1_pa7bx"]
+[ext_resource type="Resource" uid="uid://ctcujjfd0pifi" path="res://core/colors/Red.tres" id="2_enobs"]
+
+[resource]
+script = ExtResource("1_ck1bo")
+LevelName = "Patin Droped"
+NextLevel = ExtResource("1_enobs")
+ParTime = 30.0
+StartPaints = [ExtResource("1_pa7bx"), ExtResource("2_enobs")]
+LevelScenePath = "res://levels/world_01/level_01_3.tscn"
+metadata/_custom_type_script = "uid://b0x4n1403yc0i"

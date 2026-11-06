@@ -1,0 +1,199 @@
+[gd_scene format=3 uid="uid://chhxepdc02ywa"]
+
+[ext_resource type="PackedScene" uid="uid://d0hotaxtqw7ss" path="res://levels/base_level.tscn" id="1_nyqfv"]
+[ext_resource type="Resource" uid="uid://iotvl8dl8n4m" path="res://levels/world_01/ressource/ressource_01_4.tres" id="2_x56p4"]
+[ext_resource type="PackedScene" uid="uid://73q1ihrbucev" path="res://entities/player/player_small.tscn" id="3_x56p4"]
+[ext_resource type="PackedScene" uid="uid://bqq68i2n5y6gq" path="res://mechanics/colored_surface/Base_block.tscn" id="4_t16c8"]
+[ext_resource type="Resource" uid="uid://ctcujjfd0pifi" path="res://core/colors/Red.tres" id="5_2ow6o"]
+[ext_resource type="Resource" uid="uid://cjuube0sw5dww" path="res://core/colors/Blue.tres" id="6_7dh3f"]
+[ext_resource type="Resource" uid="uid://b6kg2o1owp4bk" path="res://core/colors/yellow.tres" id="7_2ow6o"]
+[ext_resource type="PackedScene" uid="uid://c3lqlwek0sjed" path="res://mechanics/colored_surface/trigger/block_trigger.tscn" id="8_7dh3f"]
+[ext_resource type="PackedScene" uid="uid://c1pctpwj4qnsx" path="res://mechanics/colored_surface/trigger/ButtonTrigger.tscn" id="9_j57yp"]
+
+[node name="BaseLevel" unique_id=1786062506 instance=ExtResource("1_nyqfv")]
+LevelData = ExtResource("2_x56p4")
+PlayerScene = ExtResource("3_x56p4")
+
+[node name="SpawnPoint1" parent="." index="2" unique_id=555833650]
+position = Vector2(88, 576)
+
+[node name="SpawnPoint2" parent="." index="3" unique_id=716219891]
+position = Vector2(80, 280)
+
+[node name="Goal" parent="." index="4" unique_id=1791214673]
+position = Vector2(112, 424)
+
+[node name="house" type="Node2D" parent="." index="6" unique_id=564756130]
+position = Vector2(0, 32)
+
+[node name="BaseBlock8" parent="house" index="0" unique_id=2106147890 instance=ExtResource("4_t16c8")]
+position = Vector2(488, 288)
+Paint = ExtResource("6_7dh3f")
+Size = Vector2(250, 20)
+
+[node name="BaseBlock7" parent="house" index="1" unique_id=1403785733 instance=ExtResource("4_t16c8")]
+position = Vector2(728, 288)
+Paint = ExtResource("5_2ow6o")
+Size = Vector2(250, 20)
+
+[node name="BaseBlock2" parent="house" index="2" unique_id=796901622 instance=ExtResource("4_t16c8")]
+position = Vector2(608, 384)
+Size = Vector2(380, 10)
+
+[node name="BaseBlock" parent="house" index="3" unique_id=1031369411 instance=ExtResource("4_t16c8")]
+position = Vector2(392, 336)
+rotation = -0.5235988
+Size = Vector2(20, 120)
+
+[node name="BaseBlock3" parent="house" index="4" unique_id=1399577594 instance=ExtResource("4_t16c8")]
+position = Vector2(816, 336)
+rotation = 0.5235988
+Size = Vector2(20, 120)
+
+[node name="BaseBlock6" parent="house" index="5" unique_id=1091961539 instance=ExtResource("4_t16c8")]
+position = Vector2(672, 176)
+Paint = ExtResource("6_7dh3f")
+Size = Vector2(130, 20)
+
+[node name="BaseBlock9" parent="house" index="6" unique_id=1858500218 instance=ExtResource("4_t16c8")]
+position = Vector2(552, 176)
+Paint = ExtResource("5_2ow6o")
+Size = Vector2(130, 20)
+
+[node name="BaseBlock10" parent="house" index="7" unique_id=1569417722 instance=ExtResource("4_t16c8")]
+position = Vector2(432, 176)
+Paint = ExtResource("7_2ow6o")
+Size = Vector2(130, 20)
+
+[node name="BaseBlock11" parent="house" index="8" unique_id=1216267596 instance=ExtResource("4_t16c8")]
+position = Vector2(792, 176)
+Paint = ExtResource("7_2ow6o")
+Size = Vector2(130, 20)
+
+[node name="BaseBlock12" parent="house" index="9" unique_id=1322313217 instance=ExtResource("4_t16c8")]
+position = Vector2(608, 64)
+Paint = ExtResource("7_2ow6o")
+Size = Vector2(270, 20)
+
+[node name="BaseBlock4" parent="house" index="10" unique_id=1021549837 instance=ExtResource("8_7dh3f")]
+position = Vector2(368, 232)
+Channel = &"red"
+TransitionDuration = 0.6
+TriggeredPaint = ExtResource("5_2ow6o")
+Paint = ExtResource("7_2ow6o")
+Size = Vector2(20, 130)
+
+[node name="BaseBlock5" parent="house" index="11" unique_id=206124817 instance=ExtResource("8_7dh3f")]
+position = Vector2(848, 232)
+Channel = &"blu"
+TransitionDuration = 0.6
+TriggeredPaint = ExtResource("6_7dh3f")
+Paint = ExtResource("7_2ow6o")
+Size = Vector2(20, 130)
+
+[node name="BaseBlock13" parent="house" index="12" unique_id=2142523212 instance=ExtResource("8_7dh3f")]
+position = Vector2(424.00003, 120.000015)
+rotation = 0.7853982
+Channel = &"blu"
+TransitionDuration = 0.6
+TriggeredPaint = ExtResource("6_7dh3f")
+Paint = ExtResource("7_2ow6o")
+Size = Vector2(20, 170)
+
+[node name="BaseBlock14" parent="house" index="13" unique_id=735037101 instance=ExtResource("8_7dh3f")]
+position = Vector2(792.0001, 120.00003)
+rotation = 2.3561945
+Channel = &"red"
+TransitionDuration = 0.6
+TriggeredPaint = ExtResource("5_2ow6o")
+Paint = ExtResource("7_2ow6o")
+Size = Vector2(20, 170)
+
+[node name="BaseBlock15" parent="house" index="14" unique_id=1758389061 instance=ExtResource("8_7dh3f")]
+position = Vector2(488, 120)
+Channel = &"yel"
+TransitionDuration = 0.6
+TriggeredPaint = ExtResource("7_2ow6o")
+Paint = ExtResource("6_7dh3f")
+Size = Vector2(20, 130)
+
+[node name="BaseBlock16" parent="house" index="15" unique_id=1214858591 instance=ExtResource("8_7dh3f")]
+position = Vector2(736, 120)
+Channel = &"yel"
+TransitionDuration = 0.6
+TriggeredPaint = ExtResource("7_2ow6o")
+Paint = ExtResource("5_2ow6o")
+Size = Vector2(20, 130)
+
+[node name="BaseBlock17" parent="house" index="16" unique_id=537101224 instance=ExtResource("8_7dh3f")]
+position = Vector2(552, 232)
+rotation = 0.7853982
+Channel = &"yel"
+TransitionDuration = 0.6
+TriggeredPaint = ExtResource("7_2ow6o")
+Paint = ExtResource("5_2ow6o")
+Size = Vector2(20, 180)
+
+[node name="BaseBlock18" parent="house" index="17" unique_id=21491486 instance=ExtResource("8_7dh3f")]
+position = Vector2(672, 232)
+rotation = 2.3561945
+Channel = &"yel"
+TransitionDuration = 0.6
+TriggeredPaint = ExtResource("7_2ow6o")
+Paint = ExtResource("6_7dh3f")
+Size = Vector2(20, 180)
+
+[node name="platform" type="Node2D" parent="." index="7" unique_id=2119846072]
+position = Vector2(120, 320)
+
+[node name="BaseBlock5" parent="platform" index="0" unique_id=905259898 instance=ExtResource("4_t16c8")]
+position = Vector2(88, 80)
+Paint = ExtResource("5_2ow6o")
+Size = Vector2(20, 180)
+
+[node name="BaseBlock3" parent="platform" index="1" unique_id=1528026827 instance=ExtResource("4_t16c8")]
+position = Vector2(160, 224)
+rotation = -2.3561945
+scale = Vector2(0.99999994, 0.99999994)
+Paint = ExtResource("6_7dh3f")
+Size = Vector2(200, 20)
+
+[node name="BaseBlock4" parent="platform" index="2" unique_id=369170809 instance=ExtResource("4_t16c8")]
+position = Vector2(0, 160)
+Size = Vector2(200, 20)
+
+[node name="BaseBlock" parent="platform" index="3" unique_id=978265544 instance=ExtResource("4_t16c8")]
+Paint = ExtResource("6_7dh3f")
+Size = Vector2(200, 20)
+
+[node name="BaseBlock2" parent="platform" index="4" unique_id=1367564901 instance=ExtResource("4_t16c8")]
+position = Vector2(168, 0)
+Size = Vector2(180, 20)
+
+[node name="BaseBlock6" parent="platform" index="5" unique_id=1097907014 instance=ExtResource("4_t16c8")]
+position = Vector2(856.00006, 144)
+rotation = -0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+Size = Vector2(440, 20)
+
+[node name="BaseBlock7" parent="platform" index="6" unique_id=1661997955 instance=ExtResource("4_t16c8")]
+position = Vector2(808, 0)
+Size = Vector2(180, 20)
+
+[node name="Area2D" parent="." index="8" unique_id=1482510550 instance=ExtResource("9_j57yp")]
+position = Vector2(505, 620)
+Channel = &"blu"
+Paint = ExtResource("6_7dh3f")
+Width = 50.0
+
+[node name="Area2D2" parent="." index="9" unique_id=1497317608 instance=ExtResource("9_j57yp")]
+position = Vector2(608, 620)
+Channel = &"yel"
+Paint = ExtResource("7_2ow6o")
+Width = 50.0
+
+[node name="Area2D3" parent="." index="10" unique_id=929220633 instance=ExtResource("9_j57yp")]
+position = Vector2(712, 620)
+Channel = &"red"
+Paint = ExtResource("5_2ow6o")
+Width = 50.0
