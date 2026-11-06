@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://test"]
 
-[ext_resource type="Script" path="res://mechanics/spikes/SpikesRow.cs" id="1"]
+[ext_resource type="Script" uid="uid://dyvyhd2obdw75" path="res://mechanics/spikes/SpikesRow.cs" id="1"]
 [ext_resource type="PackedScene" uid="uid://qwel1qy6vtpl" path="res://mechanics/spikes/Spike.tscn" id="2_spike"]
 
-[node name="SpikesRow" type="Node2D"]
+[node name="SpikesRow" type="Node2D" unique_id=1318066165]
 script = ExtResource("1")
 SpikeScene = ExtResource("2_spike")
+metadata/_edit_group_ = true

@@ -9,6 +9,8 @@
 [ext_resource type="Resource" uid="uid://b6kg2o1owp4bk" path="res://core/colors/yellow.tres" id="7_2ow6o"]
 [ext_resource type="PackedScene" uid="uid://c3lqlwek0sjed" path="res://mechanics/colored_surface/trigger/block_trigger.tscn" id="8_7dh3f"]
 [ext_resource type="PackedScene" uid="uid://c1pctpwj4qnsx" path="res://mechanics/colored_surface/trigger/ButtonTrigger.tscn" id="9_j57yp"]
+[ext_resource type="PackedScene" uid="uid://test" path="res://mechanics/spikes/SpikesRow.tscn" id="10_j57yp"]
+[ext_resource type="Resource" uid="uid://cfw1s7xn1c8x2" path="res://core/colors/Black.tres" id="11_ak1h7"]
 
 [node name="BaseLevel" unique_id=1786062506 instance=ExtResource("1_nyqfv")]
 LevelData = ExtResource("2_x56p4")
@@ -197,3 +199,9 @@ position = Vector2(712, 620)
 Channel = &"red"
 Paint = ExtResource("5_2ow6o")
 Width = 50.0
+
+[node name="SpikesRow" parent="." index="11" unique_id=1988095486 instance=ExtResource("10_j57yp")]
+position = Vector2(436, 379)
+Count = 17
+Spacing = 21.0
+Paint = ExtResource("11_ak1h7")
