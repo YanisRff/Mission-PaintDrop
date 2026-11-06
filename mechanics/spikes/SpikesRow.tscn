@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://test"]
 
 [ext_resource type="Script" path="res://mechanics/spikes/SpikesRow.cs" id="1"]
+[ext_resource type="PackedScene" uid="uid://qwel1qy6vtpl" path="res://mechanics/spikes/Spike.tscn" id="2_spike"]
 
 [node name="SpikesRow" type="Node2D"]
 script = ExtResource("1")
+SpikeScene = ExtResource("2_spike")

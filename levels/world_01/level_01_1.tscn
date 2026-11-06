@@ -66,3 +66,4 @@ Size = Vector2(360, 20)
 [node name="SpikesRow" parent="." index="7" unique_id=1726816393 instance=ExtResource("7_5s7di")]
 position = Vector2(137, 257)
 SpikeScene = ExtResource("8_136o0")
+Paint = ExtResource("4_5s7di")
