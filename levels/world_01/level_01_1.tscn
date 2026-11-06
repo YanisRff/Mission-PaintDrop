@@ -7,7 +7,6 @@
 [ext_resource type="Resource" uid="uid://ctcujjfd0pifi" path="res://core/colors/red.tres" id="4_5s7di"]
 [ext_resource type="Resource" uid="uid://cjuube0sw5dww" path="res://core/colors/blue.tres" id="5_136o0"]
 [ext_resource type="PackedScene" uid="uid://test" path="res://mechanics/spikes/SpikesRow.tscn" id="7_5s7di"]
-[ext_resource type="PackedScene" path="res://mechanics/spikes/Spike.tscn" id="8_136o0"]
 
 [node name="BaseLevel" unique_id=1786062506 instance=ExtResource("1_n35st")]
 LevelData = ExtResource("2_rpo0m")
@@ -64,6 +63,6 @@ position = Vector2(950, 374)
 Size = Vector2(360, 20)
 
 [node name="SpikesRow" parent="." index="7" unique_id=1726816393 instance=ExtResource("7_5s7di")]
-position = Vector2(137, 257)
-SpikeScene = ExtResource("8_136o0")
-Paint = ExtResource("4_5s7di")
+position = Vector2(163, 332)
+Count = 9
+Spacing = 20.0
