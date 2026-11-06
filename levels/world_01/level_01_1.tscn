@@ -20,7 +20,7 @@ offset_right = 1134.0
 position = Vector2(1030, 550)
 
 [node name="Goal" parent="." index="4" unique_id=1791214673]
-position = Vector2(576, 217)
+position = Vector2(576, 230)
 
 [node name="Platforms" type="Node2D" parent="." index="6" unique_id=671659441]
 
@@ -47,7 +47,7 @@ Paint = ExtResource("4_5s7di")
 Size = Vector2(20, 240)
 
 [node name="BaseBlock" parent="Platforms" index="4" unique_id=456365143 instance=ExtResource("3_rpo0m")]
-position = Vector2(576, 269)
+position = Vector2(576, 290)
 Size = Vector2(500, 20)
 
 [node name="BaseBlock2" parent="Platforms" index="5" unique_id=974998975 instance=ExtResource("3_rpo0m")]

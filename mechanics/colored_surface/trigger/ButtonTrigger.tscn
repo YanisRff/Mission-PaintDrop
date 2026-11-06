@@ -1,17 +1,21 @@
-[gd_scene format=3 uid="uid://cgc0kjsf166es"]
+[gd_scene format=3 uid="uid://c1pctpwj4qnsx"]
 
-[ext_resource type="Script" uid="uid://glu3g8jnggvs" path="res://mechanics/colored_surface/trigger/ButtonTrigger.cs" id="1_67c6c"]
-[ext_resource type="Script" uid="uid://b0668yjneaxbu" path="res://core/components/ColorComponent.cs" id="2_p3nn0"]
+[ext_resource type="Script" uid="uid://glu3g8jnggvs" path="res://mechanics/colored_surface/trigger/ButtonTrigger.cs" id="1_m04gv"]
+[ext_resource type="Script" uid="uid://b0668yjneaxbu" path="res://core/components/ColorComponent.cs" id="2_kiwpk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpdf6"]
 resource_local_to_scene = true
+size = Vector2(60, 16)
 
-[node name="ButtonTrigger" type="Area2D" unique_id=1505322308]
-script = ExtResource("1_67c6c")
+[node name="Area2D" type="Area2D" unique_id=1482510550]
+script = ExtResource("1_m04gv")
+Channel = &""
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1473847230]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=336439594]
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_tpdf6")
 
-[node name="ColorComponent" type="Node" parent="." unique_id=90624502]
-script = ExtResource("2_p3nn0")
+[node name="ColorComponent" type="Node" parent="." unique_id=1221133836]
+script = ExtResource("2_kiwpk")
+TintParent = false
 metadata/_custom_type_script = "uid://b0668yjneaxbu"

@@ -46,7 +46,7 @@ public partial class ColorComponent : Node
 
     public override void _Ready() => Apply();
 
-    private void Apply()
+    public void Apply()
     {
         if (GetParent() is not CollisionObject2D body)
         {
